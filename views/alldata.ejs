@@ -1,0 +1,47 @@
+<%- include('header.ejs'); %>
+
+<% if (records.length >0) { %>
+    <div class="container p-5">
+        <div class="row">
+            <!-- <h1>employee records</h1> -->
+            <table class="table table-striped table-primary">
+              <thead>
+                <tr>
+                  <th>Doctor Name</th>
+                  <th>Patient Name</th>
+                  <th>Room No</th>
+                  <th>Admit Date</th>
+                  <th>Discharge Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%if (records.length >0){ %>
+                <% records.forEach(function(row){ %>
+                <tr>
+                  <td><%= row.e_name %></td>
+                  <td><%= row.p_name %></td>
+                  <td><%= row.room_no %></td>
+                  <td><%= row.admit_date %></td>
+                  <td><%= row.discharge_date %></td>
+                </tr>
+                <% })}else{ %>
+                  <tr>
+                      <td colspan="6">No Record Found</td>
+                      
+                    </tr>
+                  <% } %>
+              </tbody>
+            </table>
+      </div>
+    </div>
+    <% }else { %>
+        <div class="text-center p-5">
+            <h1>
+                NO DATA FOUND
+            </h1>
+        </div>
+
+        <% } %>
+     
+     
+    

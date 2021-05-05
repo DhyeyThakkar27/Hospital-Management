@@ -1,0 +1,61 @@
+ <%- include('header.ejs') %>
+ 
+ <div class="container-fluid mb-5 ">
+    <div class="row">
+        <% records.forEach(function(row){%>
+            <div class="container form_border col-lg-4 ">
+      
+                <form method="post" action = "/update_doc/" autocomplete="off">
+                  <h1 style="color: skyblue;" class="pt-2">Employee Records</h1>    
+                <div class="form-group pt-2"> 
+                    <label for="name" class="form-label" >Name</label>
+                    <input type="text" class="form-control" name="e_name" value = "<%= row.e_name %>" placeholder="Employee Name">
+                </div>
+                <div class="form-group pt-2">
+                    <div class="row">
+                    <div class="col-md-6">
+                    <label for="e_id" class="form-label">Employee ID</label>
+                    <input type="text" readonly class="form-control" name="e_id"  value = "<%=row.e_id%> " placeholder="Employee ID">
+                    </div>    
+                    <div class="col-md-6">
+                    <label for="e_sex" class="form-label">Sex</label>
+                        <select class="form-control" name="e_sex">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group pt-2">
+                    <label for="department" class="form-label">Department</label>
+                    <input type="text" class="form-control" name="e_department" value = "<%=row.e_department%>" placeholder="Enter your Department">
+                </div>
+                <div class="pt-2 row">
+                <div class="form-group col-md-6">
+                    <label for="experience" class="form-label">Experience</label>
+                    <input type="text" class="form-control" name="e_exp"  value = "<%=row.e_exp%>" placeholder="Enter Total experience">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="Salary" class="form-label">Salary</label>
+                  <input type="text" class="form-control" name="e_salary" value = "<%=row.e_salary%>" placeholder="Enter your Salary">
+              </div>
+              </div>
+                <div class="form-group pt-2">
+                    <label for="con" class="form-label">Contact</label>
+                        <input type="text" class="form-control" name="e_contact" value = "<%=row.e_con%>" placeholder="Enter Contact">
+                </div>
+                <div class="form-group pt-3 pb-2">
+                    <!-- Button -->
+                    <input type="submit" name="submit" value="Submit" class="btn btn-primary" >
+                </div>
+                </form>
+            </div>
+ <% }) %>
+    </div>
+  </div>
+
+   
+
+
+
+  <%- include('footer.ejs') %>

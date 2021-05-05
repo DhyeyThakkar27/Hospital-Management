@@ -1,0 +1,51 @@
+<%- include('header.ejs') %>
+ 
+<div class="container-fluid mb-5" >
+   <div class="row">
+       <% records.forEach(function(row){%>
+        <div class="container form_border col-lg-4">    
+            <form method="post" action = "/update_pat/" autocomplete="off">
+              <h1 style="color: skyblue;" class="pt-2">Patient Records</h1>    
+            <div class="form-group pt-2"> 
+                <label for="p_name" class="form-label" >Name</label>
+                <input type="text" class="form-control" name="p_name" value = "<%= row.p_name %>" placeholder="Patient Name">
+            </div>
+            <div class="form-group pt-2">
+                <div class="row">
+                <div class="col-md-6">
+                <label for="p_id" class="form-label">Patient ID</label>
+                <input type="text" readonly class="form-control" name="p_id" value = "<%=row.p_id%> " placeholder="Patient ID">
+                </div>    
+                <div class="col-md-6">
+                <label for="p_sex" class="form-label">Sex</label>
+                    <select class="form-control" name="p_sex">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                </div>
+            </div>
+            <div class="form-group pt-2">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" name="p_address" value = "<%=row.p_address%>" placeholder="Enter your Address">
+            </div>
+            <div class="form-group">
+              <label for="age" class="form-label">Age</label>
+              <input type="text" class="form-control" name="p_age" value = "<%=row.p_age%>" placeholder="Enter your Age">
+          </div>
+            <div class="form-group pt-2">
+                <label for="p_con" class="form-label">Contact</label>
+                    <input type="text" class="form-control" name="p_contact" value = "<%=row.p_contact%>" placeholder="Enter Contact">
+            </div>
+            <div class="form-group pt-3 pb-2">
+                <!-- Button -->
+                <input type="submit" name="submit" value="Submit" class="btn btn-primary" >
+            </div>
+            </form>
+        </div>
+        
+<% }) %>
+   </div>
+ </div>
+ 
+ <%- include('footer.ejs') %>
